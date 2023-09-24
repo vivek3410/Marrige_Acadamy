@@ -54,7 +54,7 @@ function Magazinecard(props) {
         <div className="text-black font-semibold">Phone</div>
         <div className="flex flex-row w-full mb-5">
           <input type="text" className="w-20 h-auto border-2 border-black rounded-tl-md rounded-bl-md px-2 py-1 focus:outline-none sm:text-lg md:text-xl lg:text-2xl xl:text-3xl" placeholder="Code" />
-          <input type="text" className="w-full border-2 border-black rounded-r-md px-2 py-1 focus:outline-none sm:text-lg md:text-xl lg:text-2xl xl:text-3xl" placeholder="Enter your Mobile Number" />
+          <input type="text" className="w-full border-2 border-black rounded-r-md px-2 py-1 focus:outline-none sm:text-lg md:text-xl lg:text-xl xl:text-xl" placeholder="Enter your Mobile Number" />
         </div>
         <button className="bg-yellow-500 border-transparent rounded-md text-black font-semibold px-6 py-2 sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">Subscribe</button>
       </div>
