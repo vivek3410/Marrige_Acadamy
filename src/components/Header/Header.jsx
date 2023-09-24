@@ -24,9 +24,9 @@ function Dropdownlist() {
           Courses
         </a>
         {isDropDownOpen && (
-          <div className="absolute w-100 rounded-lg shadow-lg px-2 py-2 bg-white" style={{ minHeight: '160px', minWidth: '160px' }} onMouseEnter={handleMouseEnter} onMouseLeave={closeDropDown}>
+          <div className="absolute z-10  w-100 rounded-lg shadow-lg px-2 py-2 bg-white" style={{ minHeight: '160px', minWidth: '160px' }} onMouseEnter={handleMouseEnter} onMouseLeave={closeDropDown}>
             <div className="hover:bg-gray-200 hover:rounded-md p-2 mb-1">
-                <a href="/bhagavata-mahavidyalaya">ISKCON Board <br /> of Examination</a>
+              <a href="/bhagavata-mahavidyalaya">ISKCON Board <br /> of Examination</a>
             </div>
             <div className="hover:bg-gray-200 hover:rounded-md p-2 mb-1 "><a href="/vedavarsity">Vedavarsity</a></div>
             <div className="hover:bg-gray-200 hover:rounded-md p-2 mb-1 "><a href="/self-study">Self Study</a></div>

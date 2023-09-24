@@ -67,7 +67,7 @@ export default function template() {
   return (
     <div>
       <div
-        className=" bg-cover bg-center"
+        className=" bg-cover bg-center relative"
         style={{ backgroundImage: `url('/bg-image.jpg')`, height: "400px" }}
       >
         <div className="absolute inset-0 mt-0 flex flex-col justify-center items-center">
