@@ -66,7 +66,7 @@ export default function template() {
 
   return (
     <div>
-      <div
+      {/* <div
         className=" bg-cover bg-center relative"
         style={{ backgroundImage: `url('/bg-image.jpg')`,height:"400px" }}
       >
@@ -78,7 +78,7 @@ export default function template() {
             <p className="text-center">Srimad Bhagavatam, often referred to as the Bhagavata Purana, is a sacred Hindu scripture and one of the eighteen Mahāpurāṇas. <br /> It consists of 12 books and over 18,000 verses and focuses on the life and teachings of Lord Krishna, illustrating his divine activities, spiritual wisdom, and the path to devotion and enlightenment</p>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="text-left mt-20 ml-40 ">
         <Title title={"Courses"} link={"/courses"} Button={"View All"} />
         <ThreeButtons />
