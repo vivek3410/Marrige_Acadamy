@@ -93,7 +93,7 @@ export default function template() {
         <div className="flex flex-row mt-10">
           <Card time={"5 minutes"} />
           <Card time={"5 minutes"} />
-          {/* <Card time={"5 minutes"} /> */}
+          <Card time={"5 minutes"} />
         </div>
 
         <Title title={"Workshop"} link={"/workshop"} Button={"View All"} />
