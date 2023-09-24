@@ -43,22 +43,49 @@ function Vidcard({ video, title, desc }) {
 function Magazinecard(props) {
   return (
     <div className="max-w-xl max-auto overflow-hidden rounded-lg shadow-lg border-transparent rounded-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl">
-      <div className="px-10 py-10 ">
-        <div className="text-bold text-blue-500 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-5">Subscribe to our magazine</div>
+      <div className="px-4 sm:px-6 md:px-8 lg:px-10 py-4 sm:py-6 md:py-8 lg:py-10">
+        <div className="text-bold text-blue-500 text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-5">
+          Subscribe to our magazine
+        </div>
         <div className="text-black font-semibold">First Name</div>
-        <input type="text" className=" w-full border-2 border-black rounded-md mb-5 px-2 py-1 hover:outline-none sm:text-lg md:text-xl lg:text-2xl xl:text-3xl" placeholder="Enter your First Name" />
+        <input
+          type="text"
+          className="w-full border-2 border-black rounded-md mb-5 px-2 py-1 hover:outline-none sm:text-lg md:text-xl lg:text-2xl xl:text-3xl"
+          placeholder="Enter your First Name"
+        />
         <div className="text-black font-semibold">Last Name</div>
-        <input type="text" className="w-full border-2 border-black rounded-md mb-5 px-2 py-1 sm:text-lg md:text-xl lg:text-2xl xl:text-3xl" placeholder="Enter your Last Name" />
-        <div className="text-black font-semibold"> Email</div>
-        <input type="text" className="w-full border-2 border-black rounded-md mb-5 px-2 py-1 sm:text-lg md:text-xl lg:text-2xl xl:text-3xl" placeholder="Enter your Email" />
+        <input
+          type="text"
+          className="w-full border-2 border-black rounded-md mb-5 px-2 py-1 sm:text-lg md:text-xl lg:text-2xl xl:text-3xl"
+          placeholder="Enter your Last Name"
+        />
+        <div className="text-black font-semibold">Email</div>
+        <input
+          type="text"
+          className="w-full border-2 border-black rounded-md mb-5 px-2 py-1 sm:text-lg md:text-xl lg:text-2xl xl:text-3xl"
+          placeholder="Enter your Email"
+        />
         <div className="text-black font-semibold">Phone</div>
         <div className="flex flex-row w-full mb-5">
-          <input type="text" className="w-20 h-auto border-2 border-black rounded-tl-md rounded-bl-md px-2 py-1 focus:outline-none sm:text-lg md:text-xl lg:text-2xl xl:text-3xl" placeholder="Code" />
-          <input type="text" className="w-full border-2 border-black rounded-r-md px-2 py-1 focus:outline-none sm:text-lg md:text-xl lg:text-xl xl:text-xl" placeholder="Enter your Mobile Number" />
+          <input
+            type="text"
+            className="w-20 h-auto border-2 border-black rounded-tl-md rounded-bl-md px-2 py-1 focus:outline-none sm:text-lg md:text-xl lg:text-2xl xl:text-3xl"
+            placeholder="Code"
+          />
+          <input
+            type="text"
+            className="w-full border-2 border-black rounded-r-md px-2 py-1 focus:outline-none sm:text-lg md:text-xl lg:text-2xl xl:text-3xl"
+            placeholder="Enter your Mobile Number"
+          />
         </div>
-        <button className="bg-yellow-500 border-transparent rounded-md text-black font-semibold px-6 py-2 sm:text-lg md:text-xl lg:text-2xl xl:text-3xl">Subscribe</button>
+        <button
+          className="bg-yellow-500 border-transparent rounded-md text-black font-semibold px-6 py-2 sm:text-lg md:text-xl lg:text-2xl xl:text-3xl"
+        >
+          Subscribe
+        </button>
       </div>
     </div>
+
   )
 }
 
