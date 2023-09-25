@@ -120,17 +120,17 @@ export default function Course_detail() {
     }
     return (
         <>
-            <div className="bg-cover bg-center h-300px flex" style={{ backgroundImage: `url('/background-books.jpeg')` }}>
-                <div className="container text-white pl-60 pt-20">
-                    <h1 className="text-4xl font-bold mb-10">Bhakti Vaibhav Online (Module-2)</h1>
-                    <div className="text-md font-semibold mb-10">By ISKCON Bhagavata Mahavidyalaya (BV Eng)</div>
-                    <div className="flex flex-row mb-10">
-                        <img src="/rupee-icon.png" className="h-7 w-7 mb-5" alt="" />
-                        <div className="font-semibold text-3xl text-white ml-2 -mt-2">5100</div>
-                        <img src="/certi-badge.png" alt="" className="w-5 h-5 ml-7 mt-1" />
-                        <div className="text-yellow-500 text-xs font-semibold ml-3 mt-1">Certificate Course</div>
+            <div className="bg-cover bg-center md:h-full h-[180px] w-full flex" style={{ backgroundImage: `url('/background-books.jpeg')` }}>
+                <div className="container text-white md:pl-60 md:pt-20 pl-4 pt-5">
+                    <h1 className="md:text-[40px] text-[15px] font-bold md:mb-10 mb-4">Bhakti Vaibhav Online (Module-2)</h1>
+                    <div className="md:text-[15px] text-[8px] font-semibold md:mb-10 mb-4">By ISKCON Bhagavata Mahavidyalaya (BV Eng)</div>
+                    <div className="flex flex-row md:mb-10">
+                        <img src="/rupee-icon.png" className="md:h-7 md:w-7 h-4 mb-5" alt="" />
+                        <div className="font-semibold md:text-3xl text-white ml-2 md:-mt-2">5100</div>
+                        <img src="/certi-badge.png" alt="" className="md:w-5 md:h-5 h-3 ml-7 mt-2 md:mt-1" />
+                        <div className="text-yellow-500 md:text-[12px] text-[10px] font-semibold md:ml-3 ml-1 mt-[5px]">Certificate Course</div>
                     </div>
-                    <button className="bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 border-2 border-blue-500 px-7 py-2 mb-10" onClick={() => toggleEnrolledButton()}>Enroll Now</button>
+                    <button className="bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 border-2 border-blue-500 md:px-7 md:py-2 md:text-[15px] text-[8px] px-2 py-1 md:mb-10 mb-5" onClick={() => toggleEnrolledButton()}>Enroll Now</button>
                     {isEnrolledButtonOpen ? (
                         <><LoginCard /></>
                     ) : isForgotButtonclicked ? (<><ForgotCard forgotFunc={toggleEnrolledButton()} ForgotButton ={isEnrolledButtonOpen} /></>) : isSignupButtonClicked ? (<SignupCard />)   :(<></>)
@@ -139,34 +139,34 @@ export default function Course_detail() {
                 </div>
             </div>
 
-            <div className="flex flex-row p-6 bg-white justify-center">
-                <div className="flex flex-col items-center p-2">
-                    <div className="font-semibold text-black text-lg mb-1">Course Duration</div>
-                    <div className="text-black">Approx 8 Months</div>
+            <div className="flex flex-row md:p-6 bg-white md:justify-center">
+                <div className="flex flex-col items-center md:p-2">
+                    <div className="font-semibold text-black md:text-[17px] text-[12px] mb-1">Course Duration</div>
+                    <div className="text-black text-[15px] text-[8px]">Approx 8 Months</div>
                 </div>
                 <hr class="border-gray-300 h-auto border-l-2 ml-4 mr-4 " />
                 <div className="flex flex-col items-center p-2">
-                    <div className="font-semibold text-black text-lg mb-1">Videos</div>
+                    <div className="font-semibold text-black md:text-[17px] text-[12px]  mb-1">Videos</div>
                     <div className="text-black">2 Hours</div>
                 </div>
                 <hr class="border-gray-300 h-auto border-l-2 ml-4 mr-4 " />
                 <div className="flex flex-col items-center p-2">
-                    <div className="font-semibold text-black text-lg mb-1">No. Of Sessions</div>
+                    <div className="font-semibold text-black md:text-[17px] text-[12px] mb-1">No. Of Sessions</div>
                     <div className="text-black">Approx 135</div>
                 </div>
                 <hr class="border-gray-300 h-auto border-l-2 ml-4 mr-4 " />
                 <div className="flex flex-col items-center p-2">
-                    <div className="font-semibold text-black text-lg mb-1">Sessions per week</div>
+                    <div className="font-semibold text-black md:text-[17px] text-[12px] mb-1">Sessions per week</div>
                     <div className="text-black">4</div>
                 </div>
                 <hr class="border-gray-300 h-auto border-l-2 ml-4 mr-4 " />
                 <div className="flex flex-col items-center p-2">
-                    <div className="font-semibold text-black text-lg mb-1">Language</div>
+                    <div className="font-semibold text-black md:text-[17px] text-[12px] mb-1">Language</div>
                     <div className="text-black">English</div>
                 </div>
                 <hr class="border-gray-300 h-auto border-l-2 ml-4 mr-4 " />
                 <div className="flex flex-col items-center p-2">
-                    <div className="font-semibold text-black text-lg mb-1">Eligibility</div>
+                    <div className="font-semibold text-black md:text-[17px] text-[12px] mb-1">Eligibility</div>
                     <div className="text-black">Bhakti Shastri Certified</div>
                 </div>
             </div>
