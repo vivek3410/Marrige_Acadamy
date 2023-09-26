@@ -35,7 +35,7 @@ function IsMobileFunc() {
         {isMobile ? (
           <>
             <div className="flex items-center md:justify-around justify-between w-auto">
-              <img src='/iskcon-logo.jpg' className="md:w-16 md:h-16 h-[50px] w-[50px] rounded-full md:mx-4 mx-1" />
+              <a href="/"><img src='/iskcon-logo.jpg' className="md:w-16 md:h-16 h-[50px] w-[50px] rounded-full md:mx-4 mx-1" /></a>
               {isCrossIconOpen ? (
                 <img src="/close-icon.png" className="h-[12px] w-[12px] cursor-pointer mx-4" alt="" onClick={() => toggleMenuButton()} />
               ) :
@@ -79,7 +79,7 @@ function IsMobileFunc() {
         ) : (
           <>
             <div className="flex items-center ">
-              <img src='/iskcon-logo.jpg' className="md:w-16 md:h-16 h-[30px] w-[30px] rounded-full md:mx-4 mx-1" />
+              <a href="/"><img src='/iskcon-logo.jpg' className="md:w-16 md:h-16 h-[30px] w-[30px] rounded-full md:mx-4 mx-1" /></a>
             </div>
             <nav className="hidden md:flex md:flex-wrap md:flex-nowrap md:justify-center md:items-center md:mt-4 md:mt-0 md:space-x-14">
               <a href="/" className="text-black md:mx-4 hover:text-gray-200">Home</a>

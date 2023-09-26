@@ -1,4 +1,3 @@
-// import "./Home.css";
 import React, { useEffect, useState } from "react";
 import { Card, Cources, ThreeButtons, Title } from "../Elements";
 import titleData from "../../data/TitleData";
@@ -22,7 +21,7 @@ function Testimonals() {
         <>
           <div className="text-bold text-[10px] text-center mt-10 p-2" >Testimonials</div>
           <div className="flex flex-col w-full">
-            <div className="flex flex-row w-full">
+            <div className="flex flex-row w-full my-2">
               <SquareCard count="75k+" title="Active Students" color={"blue"} />
               <SquareCard count="75+" title={"courses"} color={"blue"} />
             </div>
@@ -31,7 +30,7 @@ function Testimonals() {
               <SquareCard count={"42+"} title={"Countries"} color={"blue"} />
             </div>
           </div>
-          <div className="flex flex-row items-center py-10">
+          <div className="flex flex-row items-center  py-10 ">
             <TestimonialsCard image={"/gaurangadas.jpeg"} title={"HG Gauranga Prabhu"} desc={"This Bhagavata MahaVidyalaya has a very wonderful role in creating a wonderful environment, ambiance and eco-system for the deep immersion into the study of Srimad Bhagavatham analyzing the various meanings, purports and approaches to each and every verse of Srimad Bhagavatham from different angles by which each and every devotee can increase the appreciation and absorption in krishna"} />
             <TestimonialsCard image={"/gaurangadas.jpeg"} title={"HG Gauranga Prabhu"} desc={"This Bhagavata MahaVidyalaya has a very wonderful role in creating a wonderful environment, ambiance and eco-system for the deep immersion into the study of Srimad Bhagavatham analyzing the various meanings, purports and approaches to each and every verse of Srimad Bhagavatham from different angles by which each and every devotee can increase the appreciation and absorption in krishna"} />
             {/* <TestimonialsCard image={"/gaurangadas.jpeg"} title={"HG Gauranga Prabhu"} desc={"This Bhagavata MahaVidyalaya has a very wonderful role in creating a wonderful environment, ambiance and eco-system for the deep immersion into the study of Srimad Bhagavatham analyzing the various meanings, purports and approaches to each and every verse of Srimad Bhagavatham from different angles by which each and every devotee can increase the appreciation and absorption in krishna"} /> */}
@@ -47,7 +46,7 @@ function Testimonals() {
             <SquareCard count={"42+"} title={"Countries"} color={"blue"} />
           </div>
 
-          <div className="flex flex-row items-center justify-around py-20">
+          <div className="flex flex-row md:items-center justify-around py-20">
             <TestimonialsCard image={"/gaurangadas.jpeg"} title={"HG Gauranga Prabhu"} desc={"This Bhagavata MahaVidyalaya has a very wonderful role in creating a wonderful environment, ambiance and eco-system for the deep immersion into the study of Srimad Bhagavatham analyzing the various meanings, purports and approaches to each and every verse of Srimad Bhagavatham from different angles by which each and every devotee can increase the appreciation and absorption in krishna"} />
             <TestimonialsCard image={"/gaurangadas.jpeg"} title={"HG Gauranga Prabhu"} desc={"This Bhagavata MahaVidyalaya has a very wonderful role in creating a wonderful environment, ambiance and eco-system for the deep immersion into the study of Srimad Bhagavatham analyzing the various meanings, purports and approaches to each and every verse of Srimad Bhagavatham from different angles by which each and every devotee can increase the appreciation and absorption in krishna"} />
             <TestimonialsCard image={"/gaurangadas.jpeg"} title={"HG Gauranga Prabhu"} desc={"This Bhagavata MahaVidyalaya has a very wonderful role in creating a wonderful environment, ambiance and eco-system for the deep immersion into the study of Srimad Bhagavatham analyzing the various meanings, purports and approaches to each and every verse of Srimad Bhagavatham from different angles by which each and every devotee can increase the appreciation and absorption in krishna"} />
@@ -64,8 +63,8 @@ function SquareCard({ count, title, color }) {
   return (
     <div className={`w-40 bg-white rounded-lg overflow-hidden shadow-lg ml-10`}>
       <div className={`px-4 py-2`}>
-        <h3 className={`text-xl text-bold text-${color}-500 text-center`}>{count}</h3>
-        <p className="text-gray-400 text-center">{title}</p>
+        <h3 className={`text-xl  text-bold text-${color}-500 text-center`}>{count}</h3>
+        <p className="text-gray-400 md:text-[15px] text-[8px] text-center">{title}</p>
       </div>
     </div>
   );
@@ -73,11 +72,11 @@ function SquareCard({ count, title, color }) {
 
 function TestimonialsCard({ title, desc, image }) {
   return (
-    <div className="max-w-xs max-auto bg-white rounded-lg overflow-hidden shadow-lg border-orange-500 border-2">
-      <img src={image} alt="" className="border-transparent border-full rounded-full h-40 w-40 mx-auto mt-10" />
-      <div className="px-6 py-4">
-        <div className="text-bold text-center text-xl">{title}</div>
-        <p className="text-md mt-5 text-center">{desc}</p>
+    <div className="max-w-xs max-auto bg-white rounded-lg overflow-hidden shadow-lg border-orange-500 border-2 md:m-0 m-2">
+      <img src={image} alt="" className="border-transparent border-full rounded-full md:h-40 md:w-40 h-20 mx-auto mt-10" />
+      <div className="md:px-6 md:py-4">
+        <div className="text-bold text-center md:text-xl text-xs">{title}</div>
+        <p className="text-md mt-5 text-center md:text-[15px] text-[8px] md:p-0 p-2">{desc}</p>
       </div>
     </div>
   )
@@ -122,7 +121,7 @@ function Vidoes() {
             </div>
           </>
         )}
-      <div className="flex justify-center">
+      <div className="flex justify-center pb-4">
         <button className="font-semibold text-blue-500 border-2 border-blue-500 rounded-md border-blue md:hover:bg-blue-50 bg-white md:py-2 md:px-4 md:text-[15px] text-[8px] px-4 py-1"><a href="https://www.youtube.com/playlist?list=PLSoiyHqcjc8QGqsS9wKkSQbutg1E1WEox">Watch Playlist</a></button>
       </div>
     </>
@@ -132,11 +131,11 @@ function Vidoes() {
 function Vidcard({ video, title, desc }) {
 
   return (
-    <div className="max-w-xs max-auto overflow-hidden border-transparent shadow-lg rounded-lg ml-20">
+    <div className="md:max-w-xs max-auto overflow-hidden border-transparent shadow-lg rounded-lg md:ml-20 m-2">
       <video controls src={video} className="w-full h-50 object-cover object-center"></video>
-      <div className="px-6 py-4">
-        <div className="text-bold text-black text-xl">{title}</div>
-        <div className="font-semibold text-gray-700 text-md mt-5">{desc}</div>
+      <div className="md:px-6 md:py-4 p-2">
+        <div className="text-bold text-black md:text-xl text-xs ">{title}</div>
+        <div className="font-semibold text-gray-700 text-md md:mt-5 mt-2 md:text-[15px] text-[8px] ">{desc}</div>
       </div>
     </div>
   )
@@ -154,20 +153,20 @@ function Magazinecard(props) {
   }, []);
   return (
     <div className="max-w-xl max-auto overflow-hidden rounded-lg shadow-lg border-transparent rounded-md">
-      <div className="px-10 py-10 ">
-        <div className="text-bold text-blue-500 text-xl mb-5">Subscribe to our magazine</div>
-        <div className="text-black font-semibold">First Name</div>
-        <input type="text" className=" w-full border-2 border-black rounded-md mb-5 px-2 py-1 hover:outline-none" placeholder="Enter your First Name" />
-        <div className="text-black font-semibold">Last Name</div>
-        <input type="text" className="w-full border-2 border-black rounded-md mb-5 px-2 py-1" placeholder="Enter your Last Name" />
-        <div className="text-black font-semibold"> Email</div>
-        <input type="text" className="w-full border-2 border-black rounded-md mb-5 px-2 py-1" placeholder="Enter your Email" />
-        <div className="text-black font-semibold">Phone</div>
-        <div className="flex flex-row w-full mb-5">
-          <input type="text" className="w-20 h-auto border-2 border-black rounded-tl-md rounded-bl-md px-2 py-1 focus:outline-none" placeholder="Code" />
-          <input type="text" className="w-full border-2 border-black rounded-r-md px-2 py-1 focus:outline-none" placeholder="Enter your Mobile Number" />
+      <div className="md:p-10 p-2 ">
+        <div className="text-bold text-blue-500 md:text-[15px] text-[10px] mb-5 ">Subscribe to our magazine</div>
+        <div className="text-black font-semibold md:text-[15px] text-[8px] ">First Name</div>
+        <input type="text" className=" w-full border-2 border-black rounded-md md:mb-5 my-2 md:px-2 md:py-1 p-1 hover:outline-none" style={{ fontSize: isMobile ? "8px" : "15px" }} placeholder="Enter your First Name" />
+        <div className="text-black font-semibold md:text-[15px] text-[8px]">Last Name</div>
+        <input type="text" className="w-full border-2 border-black rounded-md md:mb-5 my-2 px-2 py-1" style={{ fontSize: isMobile ? "8px" : "15px" }} placeholder="Enter your Last Name" />
+        <div className="text-black font-semibold md:text-[15px] text-[8px]"> Email</div>
+        <input type="text" className="w-full border-2 border-black rounded-md md:mb-5 my-2 px-2 py-1" style={{ fontSize: isMobile ? "8px" : "15px" }} placeholder="Enter your Email" />
+        <div className="text-black font-semibold md:text-[15px] text-[8px]">Phone</div>
+        <div className="flex flex-row w-full mb-5 md:my-0 my-2">
+          <input type="text" className="md:w-20 w-10 h-auto border-2 border-black rounded-tl-md rounded-bl-md md:px-2 md:py-1 p-1 focus:outline-none" style={{ fontSize: isMobile ? "8px" : "15px" }} placeholder="Code" />
+          <input type="text" className="w-full border-2 border-black rounded-r-md px-2 py-1 focus:outline-none" style={{ fontSize: isMobile ? "8px" : "15px" }} placeholder="Enter your Mobile Number" />
         </div>
-        <button className="bg-yellow-500 border-transparent rounded-md text-black font-semibold px-6 py-2">Subscribe</button>
+        <button className="bg-yellow-500 border-transparent rounded-md text-black font-semibold md:px-6 md:py-2 px-2 py-1 md:-text-[15px] text-[10px]">Subscribe</button>
       </div>
     </div>
 
@@ -188,7 +187,7 @@ function Magazine() {
     <>
       {isMobile ? (
         <>
-          <div className="bg-white mt-10 flex flex-col items-center mb-5">
+          <div className="bg-white mt-10 flex flex-col items-center mb-5 mt-4">
             <div className="max-w-xl max-auto p-2 border-transparent rounded-md">
               <div className="text-yellow-500 font-semibold text-[10px] mb-2">Read, Live and Inspire</div>
               <div className="font-bold text-[12px] font-semibold text-black mb-4">Inspire and Elevate yourself every fortnight</div>
@@ -229,23 +228,23 @@ function Workshop() {
   )
 }
 
-function About() {
+function template() {
   return (
     <>
       <div
         className="bg-cover bg-center relative md:h-[400px] h-[200px]"
         style={{ backgroundImage: `url('/bg-image.jpg')` }}
       >
-        <div className="absolute inset-0 mt-40 flex flex-col justify-center items-center">
-          <div className="text-white text-8xl font-bold text-center">
+        <div className="absolute inset-0 md:mt-40 mt-20 flex flex-col justify-center items-center">
+          <div className="text-white md:text-8xl text-xl font-bold text-center">
             About Studio
           </div>
           <div className="text-white md:text-md text-[10px] mt-2">
-            <p className="text-center mx-2">Srimad Bhagavatam, often referred to as the Bhagavata Purana, is a sacred Hindu scripture and one of the eighteen Mahāpurāṇas. <br /> It consists of 12 books and over 18,000 verses and focuses on the life and teachings of Lord Krishna, illustrating his divine activities, spiritual wisdom, and the path to devotion and enlightenment</p>
+            <p className="text-center md:mx-2 ">Srimad Bhagavatam, often referred to as the Bhagavata Purana, is a sacred Hindu scripture and one of the eighteen Mahāpurāṇas. <br /> It consists of 12 books and over 18,000 verses and focuses on the life and teachings of Lord Krishna, illustrating his divine activities, spiritual wisdom, and the path to devotion and enlightenment</p>
           </div>
         </div>
       </div>
-      <div className="text-left mt-20 ml-40 ">
+      <div className="text-left mt-20 md:ml-40 ml-2">
         <Title title={"Courses"} link={"/courses"} Button={"View All"} />
         <ThreeButtons />
         <div className="flex flex-row mt-10">
@@ -266,47 +265,19 @@ function About() {
 
       {/* Testimonals */}
 
-      <div className="bg-gray-50 py-5 mt-20">
-        <div className="text-bold text-4xl text-center mt-10 mb-10">Testimonials</div>
-        <div className="flex flex-row items-center justify-around">
-          <SquareCard count="75k+" title="Active Students" color={"blue"} />
-          <SquareCard count="75+" title={"courses"} color={"blue"} />
-          <SquareCard count="100K+" title="Community" color={"blue"} />
-          <SquareCard count={"42+"} title={"Countries"} color={"blue"} />
-        </div>
-
-        <div className="flex flex-row items-center justify-around py-20">
-          <TestimonialsCard image={"/gaurangadas.jpeg"} title={"HG Gauranga Prabhu"} desc={"This Bhagavata MahaVidyalaya has a very wonderful role in creating a wonderful environment, ambiance and eco-system for the deep immersion into the study of Srimad Bhagavatham analyzing the various meanings, purports and approaches to each and every verse of Srimad Bhagavatham from different angles by which each and every devotee can increase the appreciation and absorption in krishna"} />
-          <TestimonialsCard image={"/gaurangadas.jpeg"} title={"HG Gauranga Prabhu"} desc={"This Bhagavata MahaVidyalaya has a very wonderful role in creating a wonderful environment, ambiance and eco-system for the deep immersion into the study of Srimad Bhagavatham analyzing the various meanings, purports and approaches to each and every verse of Srimad Bhagavatham from different angles by which each and every devotee can increase the appreciation and absorption in krishna"} />
-          <TestimonialsCard image={"/gaurangadas.jpeg"} title={"HG Gauranga Prabhu"} desc={"This Bhagavata MahaVidyalaya has a very wonderful role in creating a wonderful environment, ambiance and eco-system for the deep immersion into the study of Srimad Bhagavatham analyzing the various meanings, purports and approaches to each and every verse of Srimad Bhagavatham from different angles by which each and every devotee can increase the appreciation and absorption in krishna"} />
-
-        </div>
-        <div className="text-bold text-4xl text-center mb-10">Videos</div>
-        <div className="flex flex-row items-center justify-center mb-10">
-          <Vidcard video="/sample.mp4" title="H.G. Devakinandan Das speaking about ISKCON Bhagavata Mahavidyalaya" desc="Here is a wonderful opportunity for serving students who are deeply absorbed with studying scriptures." />
-          <Vidcard video="/sample.mp4" title="H.G. Devakinandan Das speaking about ISKCON Bhagavata Mahavidyalaya" desc="Here is a wonderful opportunity for serving students who are deeply absorbed with studying scriptures." />
-          <Vidcard video="/sample.mp4" title="H.G. Devakinandan Das speaking about ISKCON Bhagavata Mahavidyalaya" desc="Here is a wonderful opportunity for serving students who are deeply absorbed with studying scriptures." />
-
-        </div>
-        <div className="flex justify-center">
-          <button className="font-semibold text-blue-500 border-2 border-blue-500 rounded-md border-blue hover:bg-blue-50 bg-white py-2 px-4"><a href="https://www.youtube.com/playlist?list=PLSoiyHqcjc8QGqsS9wKkSQbutg1E1WEox">Watch Playlist</a></button>
-        </div>
+      <div className="bg-gray-50 md:py-[20px] md:mt-20 mt-4">
+        <Testimonals />
+        <Vidoes />
       </div>
-      <div className="bg-white mt-10 flex flex-row justify-around items-center mb-20">
-        <div className="max-w-xl max-auto px-6 py-4 border-transparent rounded-md">
-          <div className="text-yellow-500 text-bold text-lg mb-5">Read, Live and Inspire</div>
-          <div className="text-bold text-4xl font-semibold text-black mb-5">Inspire and Elevate yourself every fortnight</div>
-          <div className="text-black">This E-Magazine, Nityam Bhāgavata-Sevayā presents the motive of Śrīmad-Bhāgavatam along with the commentaries of great Acharyas like Śrīla Viśvanātha Cakravarti Ṭhākura, Śrīla Bhaktivinoda Ṭhākura, Śrīla Bhakti Siddhānta Saraswati and A.C. Bhaktivedanta Swami Srila Prabhupada.</div>
-        </div>
-        <div className="m-5"><Magazinecard /></div>
+      <div className="bg-white md:mt-10 mt-4  md:mb-20">
+        <Magazine />
       </div>
-    </div>
 
-
-
-
+    </>
   );
 };
+
+export default template;
 
 
 
