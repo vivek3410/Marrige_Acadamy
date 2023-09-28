@@ -338,8 +338,9 @@ function Main(props) {
             <div className="flex flex-col md:px-40 md:mx-10 md:my-10  mx-2 my-4">
                 <div className='text-black-500 md:text-3xl text-lg font-semibold md:mb-10 mb-4 '>Related Courses</div>
                 <div className="flex flex-row">
-                    <Card time={"5 minutes"} />
-                    <Card time={"5 minutes"} />
+                    <Card time={"5 minutes"} title={"Iskcon vadodara (module 2)"} desc={"By Iskcon Bhagavata Mahavidyalaya"} />
+                    <Card time={"5 minutes"} title={"Iskcon vadodara (module 2)"} desc={"By Iskcon Bhagavata Mahavidyalaya"} />
+
                 </div>
             </div>
 
