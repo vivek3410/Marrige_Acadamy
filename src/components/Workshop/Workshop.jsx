@@ -22,14 +22,14 @@ function Workshop(props) {
           <div className="flex flex-row md:py-10 mt-4 justify-between md:justify-around items-center px-2">
             <img src="/sample.png" className="md:w-[600px] md:h-[400px] w-[200px] h-[100px]" alt="" />
             <div className="flex flex-col">
-              <div className="div md:text-4xl text-[10px] text-black font-bold md:px-20 px-4">{title1}</div>
+              <div className="div md:text-4xl text-[20px] text-black font-bold md:px-20 px-4">{title1}</div>
               <div className="md:text-[15px] text-[8px]  text-black md:px-20 px-4 mt-5">{desc1}</div>
               <button className="rounded-full bg-white text-black border-2 md:px-4 md:py-2 md:ml-20 md:my-5 md:text-[15px] text-[8px] md:max-w-[160px] w-[70px] md:w-[200px] md:hover:bg-gray-100 ml-4 p-[2px] mt-6" >Workshop Details</button>
             </div>
           </div>
           <div className="flex flex-row md:py-10 mt-4 justify-between md:justify-around items-center mb-5 px-2">
             <div className="flex flex-col">
-              <div className="div md:text-4xl text-[10px] text-black font-bold md:px-20 px-4">{title2}</div>
+              <div className="div md:text-4xl text-[20px] text-black font-bold md:px-20 px-4">{title2}</div>
               <div className="md:text-[15px] text-[8px]  text-black md:px-20 px-4 mt-5">{desc2}</div>
               <button className="rounded-full bg-white text-black border-2 md:px-4 md:py-2 md:ml-20 md:my-5 md:text-[15px] text-[8px] md:max-w-[160px] w-[70px] md:w-[200px] md:hover:bg-gray-100 ml-4 p-[2px] mt-6" >Workshop Details</button>
             </div>

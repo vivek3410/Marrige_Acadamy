@@ -6,7 +6,7 @@ import React from "react";
 
 function template() {
   return (
-    <div className="text-left md:mt-20 md:ml-40 ml-2">
+    <div className="text-left md:mt-20 md:ml-40 ml-2 mb-4">
       {titleData.map((title) => (
         <>
           <Title title={title.title} link={title.link} Button={"Course Library"} />

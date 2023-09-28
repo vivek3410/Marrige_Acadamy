@@ -30,17 +30,17 @@ export const Card = (props) => {
 
     return (
         <a href="/course-details">
-            <div className="md:min-w-[300px] min-w-[150px] md:h-auto md:w-[300px] bg-white rounded-lg overflow-hidden shadow-xl md:mx-4 md:mb-10 mr-4">
+            <div className="md:max-w-[320px] max-w-[160px] md:h-auto md:max-h-xl max-h-xl bg-white rounded-lg overflow-hidden shadow-xl md:mx-4 md:mb-10 mr-4">
                 <img
                     className="w-full md:h-32 h-[80px] object-cover object-center"
                     src="sample.png" alt="iskcon-log"
                 />
                 <div className="md:px-6 md:py-4 p-2 max-auto ">
                     {/* title */}
-                    <div className="font-bold md:text-xl md:mb-4 text-[10px]">{title}</div>
-                    <div className="flex items-center justify-between">
-                        <div className="md:font-semibold font-semibold md:text-lg text-[6px] mb-4 flex space-between">{desc}</div>
-                        <button className=" text-white font-semibold md:text-xs text-[6px] bg-yellow-500 rounded-[2px] md:p-2 p-1">PAID</button>
+                    <div className="font-bold md:text-xl md:mb-4 text-[10px] ">{title}</div>
+                    <div className="flex items-center justify-between ">
+                        <div className="md:font-semibold font-semibold md:text-lg text-[6px] mb-4 flex space-between my-2 pr-8">{desc}</div>
+                        <button className=" text-white font-semibold md:text-xs text-[6px] bg-yellow-500 rounded-[4px] md:px-2 md:py-1 md:-mt-4 -mt-2 px-[2px] py-[2px]">PAID</button>
                     </div>
                     {/* time */}
                     <div className="max-auto flex items-center justify-between md:mb-4 mb-2">
@@ -55,12 +55,12 @@ export const Card = (props) => {
                     <div className="max-auto flex items-center justify-between md:mb-10 md:mb-4">
                         <div className="text-gray-400 md:text-[15px] text-[8px]">Bhakti</div>
                         <div className="flex flex-row items-center">
-                            <img src="certi-badge.png" alt="" className="md:h-5 md:w-5 h-3 max-auto" />
-                            <div className="text-yellow-400 md:text-xs text-[8px] text-bold ml-2">Certificate Course</div>
+                            <img src="certi-badge.png" alt="" className="md:h-5 md:w-5 h-2 max-auto" />
+                            <div className="text-yellow-400 md:text-xs text-[5px] text-bold ml-1">Certificate Course</div>
                         </div>
                     </div>
                 </div>
-                <div className="flex justify-center mb-2">
+                <div className="flex justify-center md:mb-6 mb-4">
                     <button
                         className="bg-white border-2 border-blue-500 text-blue-500 md:hover:bg-blue-50 md:hover:text-blue-500 md:hover:border-blue-500 font-bold md:py-2 md:px-20 md:text-[15px] text-[8px] rounded-md w-full p-1 mx-4 "
                     >
@@ -121,7 +121,7 @@ export const ThreeButtons = ({ target }) => {
                 <button className={buttonClass('ongoing')} onClick={() => handleButtonClick('ongoing')}>Ongoing Courses</button>
                 <button className={buttonClass('coming soon')} onClick={() => handleButtonClick('coming soon')}>Coming Soon</button>
             </div>
-            <hr className="border-gray-200 md:max-w-[489px] max-w-[290px] mb-10 " />
+            <hr className="border-gray-200 md:max-w-[467px] max-w-[290px] mb-10 " />
 
         </>
     )
@@ -182,7 +182,7 @@ export const FilterElt = (props) => {
             {isOpen && (
                 // list
                 <div className='flex flex-row mt-0'>
-                    <div className='flex flex-col md:ml-5 md:mb-5'>
+                    <div className='flex flex-col md:ml-5 mr-2 md:mb-5'>
                         <button
                             className="border-b-2 bg-white text-black-500 flex flex-row items-center md:text-[15px] text-[9px] p-1 md:p-2 md:mr-5"
                             onClick={() => toggleCatogoriesCard()} >Catogories
@@ -211,10 +211,10 @@ export const FilterElt = (props) => {
                         )}
                     </div>
 
-                    <div className="flex flex-col md:ml-5 ml-2 mb-5">
+                    <div className="flex flex-col md:ml-5 mr-2 mb-5">
                         {/* Teachers */}
                         <button
-                            className="border-b-2 bg-white text-black-500 flex flex-row md:text-[15px] text-[9px] p-1 md:p-2 md:mr-5 mr-2"
+                            className="border-b-2 bg-white text-black-500 flex flex-row items-center md:text-[15px] text-[9px] p-1 md:p-2 md:mr-5 "
                             onClick={() => toggleTeachersCard()}
                         >
                             Teachers

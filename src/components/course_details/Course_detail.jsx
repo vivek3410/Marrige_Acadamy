@@ -9,9 +9,8 @@ function SignupCard() {
         </div>
     </>
 }
-
 function ForgotCard(props) {
-    const { loginButton , loginFunc } = props;
+    const { loginButton, loginFunc } = props;
     return (
         <div className="shadow-lg bg-white top-6 absolute rounded-md" style={{ width: "500px", marginLeft: "300px" }}>
             <div className="flex justify-center text-black text-2xl font-semibold p-4">Forgot Password?</div>
@@ -37,7 +36,7 @@ function LoginCard(props) {
         Buttontitle = "Hide";
     }
     return (
-        <div className=" flex flex-col bg-white shadow-lg  absolute top-6 rounded-md" style={{ marginLeft: "300px", width: "500px" }}>
+        <div className="flex flex-col bg-white shadow-lg  absolute top-6 rounded-md" style={{ marginLeft: "300px", width: "500px" }}>
             <div className="text-black text-2xl font-semibold flex justify-center p-4">Log In</div>
             <label htmlFor="" className="text-xs text-black px-4 mt-4 mb-2">Email Address / Contact Number</label>
             <input type="text" className=" mx-4 mb-4 rounded-lg border-2 border-gray-300 p-2 focus:outline-none text-black  focus:border-2 focus:border-blue-300" />
@@ -66,17 +65,8 @@ function LoginCard(props) {
     )
 }
 
-export default function Course_detail() {
-    useEffect(() => {
-        document.title = "course - detail"
-    }, [])
-
-    const [isOpen1, setIsOpen1] = useState(false);
-    const [isOpen2, setIsOpen2] = useState(false);
-    const [isOpen3, setIsOpen3] = useState(false);
-    const [isOpen4, setIsOpen4] = useState(false);
-    const [isOpen5, setIsOpen5] = useState(false);
-    const [isOpen6, setIsOpen6] = useState(false);
+function Title(props) {
+    const { CourseName, TeacherName, price, isCertificateCourse, } = props;
 
     const [isEnrolledButtonOpen, setIsEnrolledButton] = useState(false);
     const [isForgotButtonclicked, setIsForgotButtonClicked] = useState(false);
@@ -87,18 +77,56 @@ export default function Course_detail() {
         setIsSignupButtonClicked(!isSignupButtonClicked);
         setIsForgotButtonClicked(false);
     }
-
     const toggleForgotButton = () => {
         setIsEnrolledButton(false);
         setIsSignupButtonClicked(false);
         setIsForgotButtonClicked(!isForgotButtonclicked);
     }
-
     const toggleEnrolledButton = () => {
         setIsForgotButtonClicked(false);
         setIsSignupButtonClicked(false);
         setIsEnrolledButton(!isEnrolledButtonOpen);
     }
+
+    return (
+        <div className="bg-cover bg-center md:h-full h-[180px] md:w-full flex" style={{ backgroundImage: `url('/background-books.jpeg')` }}>
+            <div className="container text-white md:pl-60 md:pt-20 pl-4 pt-5">
+                <h1 className="md:text-[40px] text-[15px] font-bold md:mb-10 mb-4">{CourseName}</h1>
+                <div className="md:text-[15px] text-[8px] font-semibold md:mb-10 mb-4">By {TeacherName}</div>
+                <div className="flex flex-row md:mb-10">
+                    <img src="/rupee-icon.png" className="md:h-7 md:w-7 h-4 mb-5" alt="" />
+                    <div className="font-semibold md:text-3xl text-white ml-2 md:-mt-2">{price}</div>
+                    <img src="/certi-badge.png" alt="" className="md:w-5 md:h-5 h-3 ml-7 mt-2 md:mt-1" />
+                    <div className="text-yellow-500 md:text-[12px] text-[10px] font-semibold md:ml-3 ml-1 mt-[5px]">{(isCertificateCourse) ? (<><div>Certificate Course</div></>) : (<><div>Non Certificate course</div></>)}</div>
+                </div>
+                <button className="bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 border-2 border-blue-500 md:px-7 md:py-2 md:text-[15px] text-[8px] px-2 py-1 md:mb-10 mb-5" onClick={() => toggleEnrolledButton()}>Enroll Now</button>
+                {isEnrolledButtonOpen ? (
+                    <><LoginCard /></>
+                ) : isForgotButtonclicked ? (<><ForgotCard forgotFunc={toggleEnrolledButton()} ForgotButton={isEnrolledButtonOpen} /></>) : isSignupButtonClicked ? (<SignupCard />) : (<></>)
+                }
+
+            </div>
+        </div>
+    )
+}
+
+function Main(props) {
+
+    const {
+        CourseName, TeacherName, price, isCertificateCourse,
+        Courseduration, VideoDuration, No_of_Session, sessions_per_week, Language, Elgibility,
+        start_date, end_date, start_time, end_time, start_day, end_day,
+        about_teacher,
+    } = props;
+
+    const [isOpen1, setIsOpen1] = useState(false);
+    const [isOpen2, setIsOpen2] = useState(false);
+    const [isOpen3, setIsOpen3] = useState(false);
+    const [isOpen4, setIsOpen4] = useState(false);
+    const [isOpen5, setIsOpen5] = useState(false);
+    const [isOpen6, setIsOpen6] = useState(false);
+
+
     const toggleButton1 = () => {
         setIsOpen1(!isOpen1);
     }
@@ -114,106 +142,94 @@ export default function Course_detail() {
     const toggleButton5 = () => {
         setIsOpen5(!isOpen5);
     }
-
     const toggleButton6 = () => {
         setIsOpen6(!isOpen6);
     }
+
     return (
-        <>
-            <div className="bg-cover bg-center md:h-full h-[180px] w-full flex" style={{ backgroundImage: `url('/background-books.jpeg')` }}>
-                <div className="container text-white md:pl-60 md:pt-20 pl-4 pt-5">
-                    <h1 className="md:text-[40px] text-[15px] font-bold md:mb-10 mb-4">Bhakti Vaibhav Online (Module-2)</h1>
-                    <div className="md:text-[15px] text-[8px] font-semibold md:mb-10 mb-4">By ISKCON Bhagavata Mahavidyalaya (BV Eng)</div>
-                    <div className="flex flex-row md:mb-10">
-                        <img src="/rupee-icon.png" className="md:h-7 md:w-7 h-4 mb-5" alt="" />
-                        <div className="font-semibold md:text-3xl text-white ml-2 md:-mt-2">5100</div>
-                        <img src="/certi-badge.png" alt="" className="md:w-5 md:h-5 h-3 ml-7 mt-2 md:mt-1" />
-                        <div className="text-yellow-500 md:text-[12px] text-[10px] font-semibold md:ml-3 ml-1 mt-[5px]">Certificate Course</div>
-                    </div>
-                    <button className="bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 border-2 border-blue-500 md:px-7 md:py-2 md:text-[15px] text-[8px] px-2 py-1 md:mb-10 mb-5" onClick={() => toggleEnrolledButton()}>Enroll Now</button>
-                    {isEnrolledButtonOpen ? (
-                        <><LoginCard /></>
-                    ) : isForgotButtonclicked ? (<><ForgotCard forgotFunc={toggleEnrolledButton()} ForgotButton ={isEnrolledButtonOpen} /></>) : isSignupButtonClicked ? (<SignupCard />)   :(<></>)
-                    }
+        <div className="max-w-full">
+            <Title CourseName={CourseName} TeacherName={TeacherName} price={price} isCertificateCourse={isCertificateCourse} />
 
+            {/* Overall Details */}
+            <div className="flex flex-row md:p-6 bg-white justify-center max-w-full md:overflow-hidden overflow-x-scroll my-2">
+                <div className="flex flex-col items-center md:p-2 ">
+                    <div className="font-bold text-black md:text-[17px] text-[8px] mb-1">Course Duration</div>
+                    <div className="text-black md:text-[15px] text-[6px]">Approx {Courseduration} Months</div>
                 </div>
-            </div>
-
-            <div className="flex flex-row md:p-6 bg-white md:justify-center">
+                <hr class="border-gray-300 h-auto md:border-l-2 border-l-[1px] md:mx-4 mx-1" />
+                <div className="flex flex-col items-center md:p-2 ">
+                    <div className="font-bold text-black md:text-[17px] text-[8px]  mb-1">Videos</div>
+                    <div className="text-black md:text-[15px] text-[6px]">{VideoDuration} Hours</div>
+                </div>
+                <hr class="border-gray-300 h-auto md:border-l-2 border-l-[1px] md:mx-4 mx-2" />
                 <div className="flex flex-col items-center md:p-2">
-                    <div className="font-semibold text-black md:text-[17px] text-[12px] mb-1">Course Duration</div>
-                    <div className="text-black text-[15px] text-[8px]">Approx 8 Months</div>
+                    <div className="font-bold text-black md:text-[17px] text-[8px] mb-1">No. Of Sessions</div>
+                    <div className="text-black md:text-[15px] text-[6px]">Approx {No_of_Session}</div>
                 </div>
-                <hr class="border-gray-300 h-auto border-l-2 ml-4 mr-4 " />
-                <div className="flex flex-col items-center p-2">
-                    <div className="font-semibold text-black md:text-[17px] text-[12px]  mb-1">Videos</div>
-                    <div className="text-black">2 Hours</div>
+                <hr class="border-gray-300 h-auto md:border-l-2 border-l-[1px] md:mx-4 mx-2" />
+                <div className="flex flex-col items-center md:p-2">
+                    <div className="font-bold text-black md:text-[17px] text-[8px] mb-1">Sessions per week</div>
+                    <div className="text-black md:text-[15px] text-[6px]">{sessions_per_week}</div>
                 </div>
-                <hr class="border-gray-300 h-auto border-l-2 ml-4 mr-4 " />
-                <div className="flex flex-col items-center p-2">
-                    <div className="font-semibold text-black md:text-[17px] text-[12px] mb-1">No. Of Sessions</div>
-                    <div className="text-black">Approx 135</div>
+                <hr class="border-gray-300 h-auto md:border-l-2 border-l-[1px] md:mx-4 mx-2" />
+                <div className="flex flex-col items-center md:p-2">
+                    <div className="font-bold text-black md:text-[17px] text-[8px] mb-1">Language</div>
+                    <div className="text-black md:text-[15px] text-[6px]">{Language}</div>
                 </div>
-                <hr class="border-gray-300 h-auto border-l-2 ml-4 mr-4 " />
-                <div className="flex flex-col items-center p-2">
-                    <div className="font-semibold text-black md:text-[17px] text-[12px] mb-1">Sessions per week</div>
-                    <div className="text-black">4</div>
-                </div>
-                <hr class="border-gray-300 h-auto border-l-2 ml-4 mr-4 " />
-                <div className="flex flex-col items-center p-2">
-                    <div className="font-semibold text-black md:text-[17px] text-[12px] mb-1">Language</div>
-                    <div className="text-black">English</div>
-                </div>
-                <hr class="border-gray-300 h-auto border-l-2 ml-4 mr-4 " />
-                <div className="flex flex-col items-center p-2">
-                    <div className="font-semibold text-black md:text-[17px] text-[12px] mb-1">Eligibility</div>
-                    <div className="text-black">Bhakti Shastri Certified</div>
+                <hr class="border-gray-300 h-auto md:border-l-2 border-l-[1px] md:mx-4 mx-2" />
+                <div className="flex flex-col items-center md:p-2">
+                    <div className="font-bold text-black md:text-[17px] text-[8px] mb-1">Eligibility</div>
+                    <div className="text-black md:text-[15px] text-[6px]">{Elgibility}</div>
                 </div>
             </div>
 
+            {/* schedule & Teacher */}
             <div className="flex flex-col justify-center items-center bg-gray-50 py-10">
-                <div className="max-w-auto shadow-xl px-20 py-6 bg-white rounded-lg mb-20">
+                {/* schedule */}
+                <div className="shadow-xl md:px-20 md:py-6 px-4 py-4 bg-white rounded-lg">
                     <div className="flex flex-col">
-                        <div className="text-black font-semibold text-2xl pb-10">Schedule of Classes</div>
-                        <div className="flex flex-row pb-10">
-                            <div className="flex flex-row items-center mr-40">
-                                <img src="/calendar-icon.png" alt="" className="bg-gray-300 p-4 w-20 h-20 rounded-lg" />
-                                <div className="flex flex-col">
-                                    <div className="text-blue-500 text-md pl-5 font-semibold">Starts on Sep 25</div>
-                                    <div className="text-black text-md pl-5 font-semibold">Sep 25, 2023 - May 13, 2024</div>
+                        <div className="text-black font-semibold md:text-2xl text-[15px]">Schedule of Classes</div>
+                        <div className="flex flex-row md:py-10 py-4">
+                            <div className="flex flex-row items-center md:mr-[185px] mr-[50px]">
+                                <img src="/calendar-icon.png" alt="" className="bg-gray-300 md:p-4 p-[10px] md:w-20 md:h-20 w-10 h-10 rounded-[4px] md:rounded-lg" />
+                                <div className="flex flex-col pl-2 md:pl-5">
+                                    <div className="text-blue-500 md:text-[15px] text-[8px]  md:font-semibold">Starts on {start_date}</div>
+                                    <div className="text-black md:text-[15px] text-[8px]  md:font-semibold">{start_date} - {end_date}</div>
                                 </div>
                             </div>
                             <div className="flex flex-row items-center">
-                                <img src="/clock-icon.png" alt="" className="bg-gray-300 p-4 w-20 h-20 rounded-lg" />
-                                <div className="flex flex-col">
-                                    {/* <div className="text-blue-500 text-md pl-5">Starts on Sep 25</div> */}
-                                    <div className="text-black font-semibold text-md pl-5">07:00 PM to 09:00 PM IST <br />
-
+                                <img src="/clock-icon.png" alt="" className="bg-gray-300 md:p-4 p-[10px] md:w-20 md:h-20 w-10 h-10 rounded-[4px] md:rounded-lg" />
+                                <div className="flex flex-col pl-2 md:pl-5">
+                                    <div className="text-black md:font-semibold md:text-[15px] text-[8px]">{start_time} to {end_time} IST <br />
                                         Regular classes on <br />
-                                        Monday to Thursday</div>
+                                        {start_day} to {end_day}</div>
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-row">
-                            <div className="text-blue-500 font-semibold ">View Detailed Schedule</div>
-                            <img src="/arrow-blue-icon.png" className="w-3 h-3 mt-2 ml-2 bg-white" alt="" />
+                        <div className="flex flex-row items-center">
+                            <div className="text-blue-500 font-semibold md:text-[15px] text-[10px] ">View Detailed Schedule</div>
+                            <img src="/arrow-blue-icon.png" className="md:w-3 md:h-3 w-2 h-2 ml-2 bg-white" alt="" />
                         </div>
                     </div>
                 </div>
 
-                <div className="max-w-200 bg-white shadow-xl p-10 rounded-xl">
-                    <div className="flex flex-row max-w-10 justify-between">
+                {/* about teacher */}
+                <div className=" bg-white shadow-xl md:p-10 mt-10 rounded-xl" style={{ maxWidth: "60%", minWidth: "60%" }}>
+                    <div className="flex flex-row">
                         <div className="flex flex-col items-center">
-                            <img src="/user-icon.png" className="h-20 w-20" alt="" />
-
-                            <div className="text-black text-xl font-semibold">ISKCON <br /> Bhagavata <br /> Mahavidyalaya <br /> (BV Eng)</div>
+                            <img src="/user-icon.png" className="md:h-25 md:w-25 w-20 h-20  md:border-2 rounded-lg border-gray-500 p-4 mb-2" alt="" />
+                            <div className="text-black md:text-xl font-semibold ">{TeacherName}</div>
                         </div>
-                        <div className="text-black font-semibold text-2xl w-">About the Teacher</div>
+                        <div className="flex flex-col px-10">
+                            <div className="text-black font-semibold md:text-3xl mb-4">About the Teacher</div>
+                            <div className="text-black md:text-md md:mr-20"><b>{TeacherName}</b> {about_teacher} </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div className="bg-blue-50 py-10 pl-60">
+            {/* course Overview */}
+            {/* <div className="bg-blue-50 py-10 pl-60">
                 <div className="max-w-2xl">
                     <div className="text-2xl font-semibold text-black">Course Overview</div>
                     <div className="underline text-md text-black py-4 font-semibold">Course Description:</div>
@@ -253,9 +269,10 @@ export default function Course_detail() {
                     <span className="text-xs text-black mr-40 font-lg"></span>
 
                 </div>
-            </div>
+            </div> */}
 
-            <div className="bg-white flex flex-col px-60 py-10">
+            {/* FAQ's */}
+            {/* <div className="bg-white flex flex-col px-60 py-10">
                 <div className="text-black text-2xl font-semibold">Frequently Asked Questions</div>
                 <button onClick={() => toggleButton1()} className="border-2 border-gray-200 bg-white max-w-5xl  p-2 rounded-lg my-4">
                     <div className="flex flex-col">
@@ -431,13 +448,49 @@ export default function Course_detail() {
                     </div>
                 </button>
 
-            </div>
+            </div> */}
 
-            <div className="flex flex-col px-40 m-10 ml-4">
+            {/* Related Courses */}
+            {/* <div className="flex flex-col px-40 m-10 ml-4">
                 <div className='text-black-500 text-3xl font-semibold mb-10 '>Related Courses</div>
-                <Card time={"5 minutes"} />
-            </div>
+                <div className="flex flex-row">
+                    <Card time={"5 minutes"} />
+                    <Card time={"5 minutes"} />
+                </div>
+            </div> */}
 
+        </div>
+    )
+}
+
+export default function Course_detail() {
+    useEffect(() => {
+        document.title = "course - detail"
+    }, [])
+    return (
+        <>
+            <Main
+                CourseName={"Bhakti Vaibhav Online (Module-2)"}
+                TeacherName={"ISKCON Bhagavata Mahavidyalaya (BV Eng)"}
+                price={"5100"}
+                isCertificateCourse={true}
+                Courseduration={8}
+                VideoDuration={12}
+                No_of_Session={12}
+                sessions_per_week={4}
+                Language={"English"}
+                Elgibility={"Bhakti Shastri Certified"}
+                start_date={"Sep 25, 2023"}
+                end_date={"May 13, 2024"}
+                start_time={"07:00 PM"}
+                end_time={"09:00 PM"}
+                start_day={"Monday"}
+                end_day={"Thursday"}
+                about_teacher={
+                    "(डॉ. नेहा वाघ) के हिंदी-मराठी दोनों भाषाओं में कवितासंग्रह, लेख, शोधपत्र आदि प्रकाशित हैं। देवी अहिल्या विश्वविद्यालय इंदौर ने हिंदी साहित्य में शोध के लिए उन्हें Ph.D की उपाधि प्रदान की। अनेक साहित्यिक रचनाओं की प्रस्तुतियों का सूत्रसंचालन एवं लेखन किया। वे वर्ष 2009 से इस्कॉन की सदस्या हैं। वे अनेक जिज्ञासाएं लेकर मंदिर आईं और श्रील प्रभुपाद के ग्रंथ, उपदेश, सेवाभाव, उद्देश्य, ये सब उनके प्रेरणास्रोत बन गए और जीवन की दिशा बदल गई । वर्तमान में वे 'न्यू वैदिक कल्चरल सेंटर इस्कॉन पुणे' तथा 'इस्कॉन भागवत महाविद्यालय गोवर्धन' के लिए सेवा करती हैं।"
+                }
+
+            />
         </>
     );
 }

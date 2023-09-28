@@ -30,7 +30,7 @@ function IsMobileFunc() {
 
   return (
     <>
-      <div className=" md:flex md:flex-row md:justify-around md:items-center bg-white-500 md:py-2 ">
+     <div className=" md:flex md:flex-row md:justify-around md:items-center bg-white-500 md:py-2 ">
 
         {isMobile ? (
           <>
@@ -116,9 +116,9 @@ function Dropdownlist() {
   }
 
   return (
-    <div className="flex justify-between items-center z-10">
+    <div className="flex justify-between items-center z-0">
       <div className="" onMouseEnter={toggleDropDown} onMouseLeave={closeDropDown}>
-        <a href="#" className="text-black block ml-2  hover:text-gray-200">Courses</a>
+        <a href="#" className="text-black block ml-2 hover:text-gray-200">Courses</a>
         {isDropDownOpen && (
           <div className="absolute w-100 rounded-lg shadow-lg px-2 py-2 bg-white" style={{ minHeight: '160px', minWidth: '160px' }} onMouseEnter={handleMouseEnter} onMouseLeave={closeDropDown}>
             <div className="hover:bg-gray-200 hover:rounded-md p-2 mb-1">
@@ -153,7 +153,6 @@ function Dropdownlist() {
 function template() {
 
   return (
-
     <>
       <IsMobileFunc />
     </>
