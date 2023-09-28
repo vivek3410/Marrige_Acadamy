@@ -6,7 +6,7 @@ export const Title = (props) => {
     return (
         <div className="flex items-center justify-between mt-10">
             <h1 className="md:text-4xl text-[12px] text-bold">{title}</h1>
-            <button className="text-black bg-yellow-500 font-semibold rounded-md md:py-2 md:px-4 px-4 py-1 text-[10px] md:text-[15px]" style={{ marginRight: "40px" }}><a href={link}>{Button}</a></button>
+            <button className="text-black bg-yellow-500 font-semibold rounded-md md:py-2 md:px-4 px-4 py-1 text-[10px] md:text-[15px] mr-4" ><a href={link}>{Button}</a></button>
         </div>
     )
 }
