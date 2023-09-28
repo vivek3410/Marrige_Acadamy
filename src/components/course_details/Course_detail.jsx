@@ -110,6 +110,62 @@ function Title(props) {
     )
 }
 
+function FAQ(props) {
+
+    const { question, answer } = props;
+    const [isOpen, setIsOpen] = useState(false);
+
+    const [isMobile, setIsMobile] = useState(false);
+
+    const toggleButton = () => {
+        setIsOpen(!isOpen);
+    }
+
+    useEffect(() => {
+        function handleResize() {
+            setIsMobile(window.innerWidth < 768);
+        }
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [])
+
+    return (
+        <>
+
+
+            <button onClick={() => toggleButton()} className="border-2 border-gray-200 bg-white max-w-5xl p-2 rounded-lg md:my-4 my-2">
+                <div className="flex flex-col">
+                    <div className="flex flex-row items-center justify-between">
+                        <div className="text-blue-500 md:text-[15px] text-[10px] font-semibold">{question}</div>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            height={`${isMobile ? "8px" : "10px"}`}
+                            viewBox="0 0 512 512"
+                            className={`mr-2 ${isOpen ? '' : 'rotate-180'}`}
+                            style={{
+                                transition: 'transform 0.10s ease',
+                            }}
+                        >
+                            <path
+                                d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                            />
+                        </svg>
+                    </div>
+                    {isOpen && (
+                        <>
+                            <div className="flex flex-col md:max-w-[330px] max-w-[220px]">
+                                <div className="text-black md:text-[12px] text-[8px] mt-2">1. Login into your account from <a className="text-blue-500" href="https://www.vedvarsity.com">https://www.vedvarsity.com</a></div>
+                                <div className="text-black md:text-[12px] text-[8px] mr-1">2. The live classes section is on the right side of the screen.</div>
+                            </div>
+                        </>
+                    )}
+                </div>
+            </button>
+        </>
+    )
+}
+
 function Main(props) {
 
     const {
@@ -119,32 +175,16 @@ function Main(props) {
         about_teacher,
     } = props;
 
-    const [isOpen1, setIsOpen1] = useState(false);
-    const [isOpen2, setIsOpen2] = useState(false);
-    const [isOpen3, setIsOpen3] = useState(false);
-    const [isOpen4, setIsOpen4] = useState(false);
-    const [isOpen5, setIsOpen5] = useState(false);
-    const [isOpen6, setIsOpen6] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        function handleResize() {
+            setIsMobile(window.innerWidth < 768);
+        }
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [])
 
-
-    const toggleButton1 = () => {
-        setIsOpen1(!isOpen1);
-    }
-    const toggleButton2 = () => {
-        setIsOpen2(!isOpen2);
-    }
-    const toggleButton3 = () => {
-        setIsOpen3(!isOpen3);
-    }
-    const toggleButton4 = () => {
-        setIsOpen4(!isOpen4);
-    }
-    const toggleButton5 = () => {
-        setIsOpen5(!isOpen5);
-    }
-    const toggleButton6 = () => {
-        setIsOpen6(!isOpen6);
-    }
 
     return (
         <div className="max-w-full">
@@ -214,252 +254,96 @@ function Main(props) {
                 </div>
 
                 {/* about teacher */}
-                <div className=" bg-white shadow-xl md:p-10 mt-10 rounded-xl" style={{ maxWidth: "60%", minWidth: "60%" }}>
+                <div className=" bg-white shadow-xl md:p-10 p-4 mt-10 rounded-xl " style={{ maxWidth: isMobile ? "50%" : "60%", minWidth: isMobile ? "90%" : "60%" }}>
                     <div className="flex flex-row">
-                        <div className="flex flex-col items-center">
-                            <img src="/user-icon.png" className="md:h-25 md:w-25 w-20 h-20  md:border-2 rounded-lg border-gray-500 p-4 mb-2" alt="" />
-                            <div className="text-black md:text-xl font-semibold ">{TeacherName}</div>
+                        <div className="flex flex-col items-center p-2">
+                            <img src="/user-icon.png" className="md:h-20 md:w-20 w-15 h-15 md:border-2 rounded-lg md:border-gray-500 md:p-4 mb-2" alt="" />
+                            <div className="text-black md:text-[15px] text-[10px] md:ml-2 font-semibold ">{TeacherName}</div>
                         </div>
-                        <div className="flex flex-col px-10">
-                            <div className="text-black font-semibold md:text-3xl mb-4">About the Teacher</div>
-                            <div className="text-black md:text-md md:mr-20"><b>{TeacherName}</b> {about_teacher} </div>
+                        <div className="flex flex-col md:px-10 px-4">
+                            <div className="text-black font-semibold md:text-3xl text-xs md:mb-4 mb-2">About the Teacher</div>
+                            <div className="text-black text-[8px] md:text-[18px] md:text-[8px] md:mr-20 mr-4"><b>{TeacherName}</b> {about_teacher} </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             {/* course Overview */}
-            {/* <div className="bg-blue-50 py-10 pl-60">
-                <div className="max-w-2xl">
-                    <div className="text-2xl font-semibold text-black">Course Overview</div>
-                    <div className="underline text-md text-black py-4 font-semibold">Course Description:</div>
-                    <span className="text-xs text-black mr-40 font-lg">Join us for a comprehensive study of Cantos 1 to 6 of the Srimad Bhagavatam in the upcoming Bhakti Vaibhava batch. This course is divided into two modules. Module 1 covers Canto 1, 2, and 3, while Module 2 covers Canto 4, 5, and 6. Successful completion of all assessments in Modules 1 and 2 will earn you a Bhakti Vaibhav degree from the ISKCON Board of Exams.</span>
-                    <div className="underline text-md text-black py-4 font-semibold">Eligibility:</div>
+            <div className="bg-blue-50 md:py-10 md:pl-60 p-4 ">
+                <div className="max-w-5xl">
+                    <div className="md:text-2xl text-lg font-semibold text-black">Course Overview</div>
+                    <div className="underline md:text-md text-xs text-black md:py-4 py-2 font-semibold">Course Description:</div>
+                    <span className="text-xs text-black md:mr-40 mr-40">Join us for a comprehensive study of Cantos 1 to 6 of the Srimad Bhagavatam in the upcoming Bhakti Vaibhava batch. This course is divided into two modules. Module 1 covers Canto 1, 2, and 3, while Module 2 covers Canto 4, 5, and 6. Successful completion of all assessments in Modules 1 and 2 will earn you a Bhakti Vaibhav degree from the ISKCON Board of Exams.</span>
+                    <div className="underline md:text-md text-xs text-black md:py-4 py-2 font-semibold">Eligibility:</div>
                     <span className="text-xs text-black mr-40 font-lg">To pursue this course, you must have completed the Bhakti Sastri course and hold a Bhakti Sastri certificate issued by the ISKCON Board of Examination.</span>
-                    <div className="underline text-md text-black py-4 font-semibold">Course Materials:</div>
-                    <span className="text-xs text-black mr-40 font-lg">Institute will provide you a comprehensive Students' Handbook.</span>
-                    <div className="underline text-md text-black py-4 font-semibold">Course Duration:</div>
+                    <div className="underline md:text-md text-xs text-black md:py-4 py-2 font-semibold">Course Materials:</div>
+                    <span className="text-xs text-black md:mr-40 font-lg">Institute will provide you a comprehensive Students' Handbook.</span>
+                    <div className="underline md:text-md text-xs text-black md:py-4 py-2 font-semibold">Course Duration:</div>
                     <span className="text-xs text-black mr-40 font-lg">The approximate duration of the course is 500 hours.</span>
-                    <div className="underline text-md text-black py-4 font-semibold">Target Audience:</div>
+                    <div className="underline md:text-md text-xs text-black md:py-4 py-2 font-semibold">Target Audience:</div>
                     <span className="text-xs text-black mr-40 font-lg">This course is open to all devotees who have a Bhakti-shastri certification and are enthusiastic about furthering their scriptural studies with the Srimad-Bhagavatam. It is in accordance with Srila Prabhupada's desire that all ISKCON devotees undertake the Bhakti-Vaibhava certification.</span>
-                    <div className="underline text-md text-black py-4 font-semibold">Assessment Plan:</div>
+                    <div className="underline md:text-md text-xs text-black md:py-4 py-2 font-semibold">Assessment Plan:</div>
                     <span className="text-xs text-black mr-40 font-lg">The assessments will include open book questions, closed book exams for each unit, sloka recitation, and four presentations covering Cantos 1 to 6.</span>
-                    <div className="underline text-md text-black py-4 font-semibold">Course Requirements:</div>
+                    <div className="underline md:text-md text-xs text-black md:py-4 py-2 font-semibold">Course Requirements:</div>
                     <span className="text-xs text-black mr-40 font-lg">To be eligible for the Bhakti Vaibhav degree, you must meet the following requirements:</span>
-                    <div className="underline text-md text-black py-4 font-semibold">Age: <span className="text-xs no-underline text-black mr-40 font-lg"></span></div>
+                    <div className="underline md:text-md text-xs text-black md:py-4 py-2 font-semibold">Age: <span className="text-xs no-underline text-black mr-40 font-lg"></span></div>
 
-                    <div className="underline text-md text-black py-4 font-semibold">Daily Sadhana: <span className="text-xs no-underline text-black mr-40 font-lg">Chant a minimum of 16 rounds of the Hare Krishna maha-mantra and follow the four regulative principles.</span></div>
+                    <div className="flex flex-col">
+                        <div className="underline md:text-md text-xs text-black md:py-4 py-2 font-semibold">Daily Sadhana: </div>
+                        <span className="text-xs text-black mr-40 font-lg">Chant a minimum of 16 rounds of the Hare Krishna maha-mantra and follow the four regulative principles.</span>
+                    </div>
 
-                    <div className="underline text-md text-black py-4 font-semibold">Bhakti Sastri Certificate: <span className=" no-underline text-xs text-black mr-40 font-lg">Hold a Bhakti Sastri certificate from any authorized ISKCON center issued by the ISKCON Board of Examinations.</span></div>
+                    <div className="flex-flex-col">
+                        <div className="underline md:text-md text-xs text-black md:py-4 py-2 font-semibold">Bhakti Sastri Certificate:</div>
+                        <span className=" no-underline text-xs text-black md:mr-40 ">Hold a Bhakti Sastri certificate from any authorized ISKCON center issued by the ISKCON Board of Examinations.</span>
+                    </div>
 
-                    <div className="underline text-md text-black py-4 font-semibold">Prior Preparation: <span className="no-underline text-xs text-black mr-40 font-lg">It is recommended to read all six cantos before the course begins for a better understanding and maximum benefit.</span></div>
+                    <div className="flex flex-col">
+                        <div className="underline md:text-md text-xs text-black md:py-4 py-2 font-semibold">Prior Preparation:</div>
+                        <span className="no-underline text-xs text-black md:mr-40 font-lg">It is recommended to read all six cantos before the course begins for a better understanding and maximum benefit.</span>
+                    </div>
 
-                    <div className="underline text-md text-black py-4 font-semibold">Proficiency in English: <span className="text-xs no-underline text-black mr-40 font-lg">As the course will be conducted in English, a good command of the language is mandatory.</span></div>
+                    <div className="flex flex-col">
+                        <div className="underline md:text-md text-xs text-black md:py-4 py-2 font-semibold">Proficiency in English: </div>
+                        <span className="text-xs text-black md:mr-40 font-lg">As the course will be conducted in English, a good command of the language is mandatory.</span>
+                    </div>
 
-                    <div className="underline text-md text-black py-4 font-semibold">Attendance: <span className="text-xs no-underline text-black mr-40 font-lg">Maintain a minimum of 75% attendance in live sessions as per ISKCON Board of Examination rules.</span></div>
+                    <div className="flex flex-col">
+                        <div className="underline md:text-md text-xs text-black md:py-4 py-2 font-semibold">Attendance:</div>
+                        <span className="text-xs no-underline text-black md:mr-40 font-lg">Maintain a minimum of 75% attendance in live sessions as per ISKCON Board of Examination rules.</span>
+                    </div>
 
-                    <div className="underline text-md text-black py-4 font-semibold">Recommendation Letter: <span className="text-xs no-underline text-black mr-40 font-lg">Please submit a recommendation letter from an ISKCON authority (your Spiritual Master/GBC member/Temple President/Co-President) who knows you well, certifying your character, sadhana, Brahminical tendencies, and active engagement in Lord Caitanya Mahaprabhu's preaching mission for at least the previous 12 months.</span> </div>
+                    <div className="flex flex-col">
+                        <div className="underline md:text-md text-xs text-black md:py-4 py-2 font-semibold">Recommendation Letter: </div>
+                        <span className="text-xs text-black md:mr-40 ">Please submit a recommendation letter from an ISKCON authority (your Spiritual Master/GBC member/Temple President/Co-President) who knows you well, certifying your character, sadhana, Brahminical tendencies, and active engagement in Lord Caitanya Mahaprabhu's preaching mission for at least the previous 12 months.</span>
+                    </div>
 
 
-                    <div className="underline text-md text-black py-4 font-semibold"></div>
-                    <span className="text-xs text-black mr-40 font-lg"></span>
-                    <div className="underline text-md text-black py-4 font-semibold"></div>
-                    <span className="text-xs text-black mr-40 font-lg"></span>
-                    <div className="underline text-md text-black py-4 font-semibold"></div>
-                    <span className="text-xs text-black mr-40 font-lg"></span>
+                    <div className="flex flex-col">
+                        <div className="underline md:text-md text-black md:py-4 py-2 font-semibold"></div>
+                        <span className="text-xs text-black md:mr-40"></span>
+                    </div>
 
                 </div>
-            </div> */}
+            </div>
 
             {/* FAQ's */}
-            {/* <div className="bg-white flex flex-col px-60 py-10">
-                <div className="text-black text-2xl font-semibold">Frequently Asked Questions</div>
-                <button onClick={() => toggleButton1()} className="border-2 border-gray-200 bg-white max-w-5xl  p-2 rounded-lg my-4">
-                    <div className="flex flex-col">
-                        <div className="flex flex-row justify-between">
-                            <div className="text-blue-500 font-semibold mr-20">How to attend a live session ?</div>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                height="10px"
-                                viewBox="0 0 512 512"
-                                className={`ml-2 mt-2 mr-2 ${isOpen1 ? '' : 'rotate-180'}`}
-                                style={{
-                                    transition: 'transform 0.10s ease',
-                                }}
-                            >
-                                <path
-                                    d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-                                />
-                            </svg>
-                        </div>
-                        {isOpen1 && (
-                            <>
-                                <div className="m-0 p-0 flex flex-col max-w-md -ml-2 shadow-transparent">
-                                    <div className="text-black text-md">1. Login into your account from <a className="text-blue-500" href="https://www.vedvarsity.com">https://www.vedvarsity.com</a></div>
-                                    <div className="text-black text-md mr-2">2. The live classes section is on the right side of the screen.</div>
-                                </div>
-                            </>
-                        )}
-                    </div>
-                </button>
+            <div className="bg-white flex flex-col md:px-60 px-2 py-4 md:py-10">
+                <div className="text-black md:text-2xl text-lg font-semibold">Frequently Asked Questions</div>
+                <FAQ question={"How to attend a live session ?"} />
+            </div>
 
-                <button onClick={() => toggleButton2()} className="border-2 border-gray-200 bg-white max-w-5xl  p-2 rounded-lg my-4">
-                    <div className="flex flex-col">
-                        <div className="flex flex-row justify-between">
-                            <div className="text-blue-500 font-semibold mr-20">How to attend a live session ?</div>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                height="10px"
-                                viewBox="0 0 512 512"
-                                className={`ml-2 mt-2 mr-2 ${isOpen2 ? '' : 'rotate-180'}`}
-                                style={{
-                                    transition: 'transform 0.10s ease',
-                                }}
-                            >
-                                <path
-                                    d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-                                />
-                            </svg>
-                        </div>
-                        {isOpen2 && (
-                            <>
-                                <div className="m-0 p-0 flex flex-col max-w-md -ml-2 shadow-transparent">
-                                    <div className="text-black text-md">1. Login into your account from <a className="text-blue-500" href="https://www.vedvarsity.com">https://www.vedvarsity.com</a></div>
-                                    <div className="text-black text-md mr-2">2. The live classes section is on the right side of the screen.</div>
-                                </div>
-                            </>
-                        )}
-                    </div>
-                </button>
-
-                <button onClick={() => toggleButton3()} className="border-2 border-gray-200 bg-white max-w-5xl  p-2 rounded-lg my-4">
-                    <div className="flex flex-col">
-                        <div className="flex flex-row justify-between">
-                            <div className="text-blue-500 font-semibold mr-20">How to attend a live session ?</div>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                height="10px"
-                                viewBox="0 0 512 512"
-                                className={`ml-2 mt-2 mr-2 ${isOpen3 ? '' : 'rotate-180'}`}
-                                style={{
-                                    transition: 'transform 0.10s ease',
-                                }}
-                            >
-                                <path
-                                    d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-                                />
-                            </svg>
-                        </div>
-                        {isOpen3 && (
-                            <>
-                                <div className="m-0 p-0 flex flex-col max-w-md -ml-2 shadow-transparent">
-                                    <div className="text-black text-md">1. Login into your account from <a className="text-blue-500" href="https://www.vedvarsity.com">https://www.vedvarsity.com</a></div>
-                                    <div className="text-black text-md mr-2">2. The live classes section is on the right side of the screen.</div>
-                                </div>
-                            </>
-                        )}
-                    </div>
-                </button>
-
-                <button onClick={() => toggleButton4()} className="border-2 border-gray-200 bg-white max-w-5xl  p-2 rounded-lg my-4">
-                    <div className="flex flex-col">
-                        <div className="flex flex-row justify-between">
-                            <div className="text-blue-500 font-semibold mr-20">How to attend a live session ?</div>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                height="10px"
-                                viewBox="0 0 512 512"
-                                className={`ml-2 mt-2 mr-2 ${isOpen4 ? '' : 'rotate-180'}`}
-                                style={{
-                                    transition: 'transform 0.10s ease',
-                                }}
-                            >
-                                <path
-                                    d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-                                />
-                            </svg>
-                        </div>
-                        {isOpen4 && (
-                            <>
-                                <div className="m-0 p-0 flex flex-col max-w-md -ml-2 shadow-transparent">
-                                    <div className="text-black text-md">1. Login into your account from <a className="text-blue-500" href="https://www.vedvarsity.com">https://www.vedvarsity.com</a></div>
-                                    <div className="text-black text-md mr-2">2. The live classes section is on the right side of the screen.</div>
-                                </div>
-                            </>
-                        )}
-                    </div>
-                </button>
-
-                <button onClick={() => toggleButton5()} className="border-2 border-gray-200 bg-white max-w-5xl  p-2 rounded-lg my-4">
-                    <div className="flex flex-col">
-                        <div className="flex flex-row justify-between">
-                            <div className="text-blue-500 font-semibold mr-20">How to attend a live session ?</div>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                height="10px"
-                                viewBox="0 0 512 512"
-                                className={`ml-2 mt-2 mr-2 ${isOpen5 ? '' : 'rotate-180'}`}
-                                style={{
-                                    transition: 'transform 0.10s ease',
-                                }}
-                            >
-                                <path
-                                    d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-                                />
-                            </svg>
-                        </div>
-                        {isOpen5 && (
-                            <>
-                                <div className="m-0 p-0 flex flex-col max-w-md -ml-2 shadow-transparent">
-                                    <div className="text-black text-md">1. Login into your account from <a className="text-blue-500" href="https://www.vedvarsity.com">https://www.vedvarsity.com</a></div>
-                                    <div className="text-black text-md mr-2">2. The live classes section is on the right side of the screen.</div>
-                                </div>
-                            </>
-                        )}
-                    </div>
-                </button>
-
-                <button onClick={() => toggleButton6()} className="border-2 border-gray-200 bg-white max-w-5xl  p-2 rounded-lg my-4">
-                    <div className="flex flex-col">
-                        <div className="flex flex-row justify-between">
-                            <div className="text-blue-500 font-semibold mr-20">How to attend a live session ?</div>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                height="10px"
-                                viewBox="0 0 512 512"
-                                className={`ml-2 mt-2 mr-2 ${isOpen6 ? '' : 'rotate-180'}`}
-                                style={{
-                                    transition: 'transform 0.10s ease',
-                                }}
-                            >
-                                <path
-                                    d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
-                                />
-                            </svg>
-                        </div>
-                        {isOpen4 && (
-                            <>
-                                <div className="m-0 p-0 flex flex-col max-w-md -ml-2 shadow-transparent">
-                                    <div className="text-black text-md">1. Login into your account from <a className="text-blue-500" href="https://www.vedvarsity.com">https://www.vedvarsity.com</a></div>
-                                    <div className="text-black text-md mr-2">2. The live classes section is on the right side of the screen.</div>
-                                </div>
-                            </>
-                        )}
-                    </div>
-                </button>
-
-            </div> */}
 
             {/* Related Courses */}
-            {/* <div className="flex flex-col px-40 m-10 ml-4">
-                <div className='text-black-500 text-3xl font-semibold mb-10 '>Related Courses</div>
+            <div className="flex flex-col md:px-40 md:mx-10 md:my-10  mx-2 my-4">
+                <div className='text-black-500 md:text-3xl text-lg font-semibold md:mb-10 mb-4 '>Related Courses</div>
                 <div className="flex flex-row">
                     <Card time={"5 minutes"} />
                     <Card time={"5 minutes"} />
                 </div>
-            </div> */}
+            </div>
 
-        </div>
+        </div >
     )
 }
 
