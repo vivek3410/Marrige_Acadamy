@@ -263,8 +263,8 @@ function template() {
         <Title title={"Membership-Based Learning Programs"} link={"/membership"} Button={"View All"} />
         <ThreeButtons />
         <div className="flex flex-row mt-10">
-          <Card time={"5 minutes"} />
-          <Card time={"5 minutes"} />
+          <Card time={"5 minutes"} title={"Iskcon vadodara (module 2)"} desc={"By Iskcon Bhagavata Mahavidyalaya"} />
+          <Card time={"5 minutes"} title={"Iskcon vadodara (module 2)"} desc={"By Iskcon Bhagavata Mahavidyalaya"} />
         </div>
 
         <Title title={"Workshop"} link={"/workshop"} Button={"View All"} />
