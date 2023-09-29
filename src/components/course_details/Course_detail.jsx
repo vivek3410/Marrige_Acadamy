@@ -26,6 +26,16 @@ function LoginCard(props) {
 
     const { forgotFunc, signupFunc, SignupButton, ForgotButton } = props;
     const [isOpen, setIsOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        function handleResize() {
+            setIsMobile(window.innerWidth < 768);
+        }
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return window.removeEventListener('resize', handleResize);
+    }, [])
 
     const toggleButton = () => {
         setIsOpen(!isOpen);
@@ -36,14 +46,14 @@ function LoginCard(props) {
         Buttontitle = "Hide";
     }
     return (
-        <div className="flex flex-col bg-white shadow-lg  absolute top-6 rounded-md" style={{ marginLeft: "300px", width: "500px" }}>
-            <div className="text-black text-2xl font-semibold flex justify-center p-4">Log In</div>
-            <label htmlFor="" className="text-xs text-black px-4 mt-4 mb-2">Email Address / Contact Number</label>
-            <input type="text" className=" mx-4 mb-4 rounded-lg border-2 border-gray-300 p-2 focus:outline-none text-black  focus:border-2 focus:border-blue-300" />
-            <label htmlFor="" className="text-xs text-black px-4 mb-2">Email Address / Contact Number</label>
-            <div className="flex flex-row mb-1 items-center justify-center">
-                <input type="text" className="ml-4 rounded-l-md border-2 border-gray-300 p-2   focus:outline-none text-black w-auto focus:border-2 focus:border-blue-300 " style={{ width: "90%" }} />
-                <button className="bg-gray-400 text-black border-2 border-gray-400 rounded-r-md mr-4 px-4 py-2 " onClick={() => toggleButton()}>{Buttontitle}</button>
+        <div className="flex flex-col bg-white shadow-lg justify-center  absolute top-6 md:min-w-4xl max-w-xl md:rounded-md" style={{ marginLeft: isMobile ? "10px" : "300px", width: isMobile ? "400px" : "500px" }}>
+            <div className="text-black md:text-2xl font-semibold flex justify-center md:p-4 p-2">Log In</div>
+            <label htmlFor="" className="md:text-[12px] text-[8px] text-black md:mx-4 mx-2 my-2">Email Address / Contact Number</label>
+            <input type="text" className=" md:mx-4 mx-2 md:mb-4 mb-2 rounded-lg border-2 border-gray-300 md:p-2 focus:outline-none text-black  focus:border-2 focus:border-blue-300" />
+            <label htmlFor="" className="md:text-[12px] text-[8px] text-black w-full md:mx-4 mx-2 mb-2">Email Address / Contact Number</label>
+            <div className="flex flex-row mb-1 items-center justify-center md:mx-4 mx-2 ">
+                <input type="text" className=" rounded-l-md border-2 border-gray-300 md:p-2 focus:outline-none text-black w-auto focus:border-2 focus:border-blue-300 md:text-[12px] text-[8px]" style={{ width: "90%" }} />
+                <button className="bg-gray-400 text-black border-2 border-gray-400 rounded-r-md md:mr-4 md:px-4 md:py-2 md:text-[12px] text-[8px]" onClick={() => toggleButton()}>{Buttontitle}</button>
             </div>
             <div className="inline-flex justify-between items-center py-3 mx-4">
                 <div className="inline-flex items-center">
